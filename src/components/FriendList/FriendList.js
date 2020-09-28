@@ -21,9 +21,7 @@ function FriendList(props) {
 }
 
 FriendList.propTypes = {
-  avatar: PropTypes.string,
-  name: PropTypes.string,
-  isOnline: PropTypes.bool,
+  friends: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default FriendList;

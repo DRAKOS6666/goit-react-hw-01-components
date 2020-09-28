@@ -1,20 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import './TransactionHistory.scss';
+import TableRow from './TableRow';
 
 function TransactionHistory(props) {
-  const tableRow = props.items.map(prop => {
-    return (
-      <tr key={prop.id}>
-        <th>{prop.type}</th>
-        <th>{prop.amount}</th>
-        <th>{prop.currency}</th>
-      </tr>
-    );
-  });
-
   return (
-    <table class="transaction-history">
+    <table className="transaction-history">
       <thead>
         <tr>
           <th>Type</th>
@@ -23,9 +14,15 @@ function TransactionHistory(props) {
         </tr>
       </thead>
 
-      <tbody>{tableRow}</tbody>
+      <tbody>
+        <TableRow items={props.items}></TableRow>
+      </tbody>
     </table>
   );
 }
+
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(object).isRequired,
+};
 
 export default TransactionHistory;

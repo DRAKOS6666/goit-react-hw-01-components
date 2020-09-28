@@ -32,14 +32,21 @@ function Profile({ name, tag, location, avatar, stats }) {
 
 Profile.defaultProps = {
   avatar: 'https://dummyimage.com/100x100/000000/0011ff&text=avatar',
+  tag: '',
+  location: '',
+  stats: {
+    followers: 0,
+    views: 0,
+    likes: 0,
+  },
 };
 
 Profile.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  stats: PropTypes.object,
   tag: PropTypes.string,
   location: PropTypes.string,
   avatar: PropTypes.string,
-  stats: PropTypes.object,
 };
 
 export default Profile;
