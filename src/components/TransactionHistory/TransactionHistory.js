@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes, { object } from 'prop-types';
+import propTypes from 'prop-types';
 import './TransactionHistory.scss';
 import TableRow from './TableRow';
 
-function TransactionHistory(props) {
+function TransactionHistory({ transactions }) {
   return (
     <table className="transaction-history">
       <thead>
@@ -15,14 +15,20 @@ function TransactionHistory(props) {
       </thead>
 
       <tbody>
-        <TableRow items={props.items}></TableRow>
+        {transactions.map(action => (
+          <tr key={action.id}>
+            <TableRow transaction={action} />
+          </tr>
+        ))}
       </tbody>
     </table>
   );
 }
 
 TransactionHistory.propTypes = {
-  items: PropTypes.arrayOf(object).isRequired,
+  transactions: propTypes.arrayOf(
+    propTypes.shape({ id: propTypes.string.isRequired }),
+  ).isRequired,
 };
 
 export default TransactionHistory;
