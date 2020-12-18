@@ -43,7 +43,10 @@ Profile.defaultProps = {
 
 Profile.propTypes = {
   name: PropTypes.string.isRequired,
-  stats: PropTypes.object,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+  }),
   tag: PropTypes.string,
   location: PropTypes.string,
   avatar: PropTypes.string,

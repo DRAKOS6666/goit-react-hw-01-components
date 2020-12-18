@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import './TransactionHistory.scss';
-import TableRow from './TableRow';
+import TableRow from './TableRow/TableRow';
 
 function TransactionHistory({ transactions }) {
   return (

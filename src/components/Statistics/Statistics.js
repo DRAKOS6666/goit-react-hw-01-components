@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import StatItem from './StatItem';
+import StatItem from './StatItem/StatItem';
+import getRandomColor from '../../utils/getRandomColor';
 import './Statistics.scss';
 
 function Statistics({ title, stats }) {
@@ -31,14 +32,5 @@ Statistics.propTypes = {
 Statistics.defaultProps = {
   title: '',
 };
-
-function getRandomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
 
 export default Statistics;
